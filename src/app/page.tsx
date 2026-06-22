@@ -34,11 +34,9 @@ const featuredCollections = [
 ];
 
 const trustMetrics = [
-  { stat: "1000+", label: "Happy Customers" },
+  { stat: "100+", label: "happy customer" },
   { stat: "7+ Years", label: "Experience" },
-  { stat: "Own Unit", label: "Manufacturing" },
   { stat: "Pan India", label: "Delivery" },
-  { stat: "MOQ 100+", label: "Bags Minimum" },
 ];
 
 const whyChooseUs = [
@@ -139,6 +137,16 @@ export default function Home() {
                 dates, logos, and unique artwork to make every celebration
                 unforgettable.
               </p>
+              <div className="flex flex-wrap gap-6 md:gap-8 mt-2">
+                {trustMetrics.map(({ stat, label }) => (
+                  <div key={label} className="flex flex-col items-center text-center gap-0.5 font-heading">
+                    <span className="text-2xl md:text-3xl font-bold text-primary">{stat}</span>
+                    <span className="text-xs md:text-sm text-muted-foreground font-medium uppercase tracking-wider">
+                      {label}
+                    </span>
+                  </div>
+                ))}
+              </div>
               <div className="flex flex-col sm:flex-row gap-4 mt-4">
                 <Link href="/contact" className={buttonVariants({ size: "lg" })}>
                   Request Quote
@@ -154,22 +162,6 @@ export default function Home() {
             <div className="relative aspect-square md:aspect-[4/3] w-full h-[400px] md:h-[500px] lg:h-[600px]">
               <HeroBags />
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Trust Metrics Banner */}
-      <section className="border-y bg-zinc-50 dark:bg-zinc-950 py-8">
-        <div className="container mx-auto px-4 md:px-8">
-          <div className="flex flex-wrap justify-center gap-8 md:gap-12 text-center">
-            {trustMetrics.map(({ stat, label }) => (
-              <div key={label} className="flex flex-col items-center gap-1 font-heading">
-                <span className="text-3xl font-bold text-primary">{stat}</span>
-                <span className="text-sm text-muted-foreground font-medium uppercase tracking-wider">
-                  {label}
-                </span>
-              </div>
-            ))}
           </div>
         </div>
       </section>
