@@ -193,9 +193,8 @@ export default function Home() {
       </div>
 
 
-
       {/* About Preview */}
-      <FadeSection className="border-y border-white/50 bg-white/60 dark:bg-black/60 backdrop-blur-xl shadow-xl py-24 mt-16 md:mt-24 mb-6 md:mb-8">
+        <FadeSection className="py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg order-2 md:order-1">
@@ -231,8 +230,8 @@ export default function Home() {
         </div>
       </FadeSection>
 
-      {/* Collections Showcase */}
-      <FadeSection className="border-y border-white/50 bg-white/60 dark:bg-black/60 backdrop-blur-xl shadow-xl py-24 my-6 md:my-8">
+        {/* Collections Showcase */}
+        <FadeSection className="py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
             <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
@@ -284,8 +283,8 @@ export default function Home() {
         </div>
       </FadeSection>
 
-      {/* Why Choose Us */}
-      <FadeSection className="border-y border-white/50 bg-white/60 dark:bg-black/60 backdrop-blur-xl shadow-xl py-24 my-6 md:my-8">
+        {/* Why Choose Us */}
+        <FadeSection className="py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
             <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
@@ -312,7 +311,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </FadeSection>
+        </FadeSection>
 
       {/* ── Testimonials ── */}
       <FadeSection className="relative py-28 overflow-hidden bg-transparent">
