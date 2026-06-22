@@ -112,52 +112,52 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero — single viewport height, cards wrap around centered text (Figma layout) */}
-      <div className="relative w-full h-screen overflow-hidden">
+      {/* Hero Section — Matches Screenshot */}
+      <div className="relative w-full pt-8 md:pt-12 pb-16 flex flex-col items-center overflow-hidden">
+        
+        {/* Arc of Cards */}
+        <div className="relative w-full max-w-[1400px] h-[300px] md:h-[380px] lg:h-[460px] shrink-0">
+          <HeroBags />
+        </div>
 
-        {/* Cards — horseshoe arrangement around text */}
-        <HeroBags />
+        {/* Text Block */}
+        <div className="container mx-auto px-4 text-center max-w-3xl relative z-10 -mt-24 md:-mt-36 lg:-mt-42">
+          <div ref={heroTextRef} className="flex flex-col items-center gap-4">
+            <h1 className="font-heading text-6xl md:text-7xl lg:text-[7.5rem] leading-none text-primary drop-shadow-sm font-normal">
+              Purple Bags
+            </h1>
 
-        {/* Text — centered in viewport, cards surround it */}
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none">
-          <div className="text-center max-w-xl px-4">
-            <div ref={heroTextRef} className="flex flex-col items-center gap-2">
-              <h1 className="font-heading text-6xl md:text-7xl lg:text-[7.5rem] leading-none text-primary tracking-tight drop-shadow-sm">
-                Purple Bags
-              </h1>
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-serif tracking-tight text-foreground/90 italic mt-2">
+              Custom Wedding Bags Crafted For Your Special Day.
+            </h2>
 
-              <h2 className="text-lg md:text-xl lg:text-2xl font-bold tracking-tight text-foreground/90 leading-snug">
-                Custom Wedding Bags Crafted For Your Special Day.
-              </h2>
+            <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed mt-2">
+              Premium customized wedding bags designed with your names, wedding dates, logos, and unique artwork to make every celebration unforgettable.
+            </p>
 
-              <p className="text-sm text-muted-foreground max-w-md mx-auto leading-relaxed mt-1">
-                Premium customized wedding bags designed with your names, wedding dates, logos, and unique artwork to make every celebration unforgettable.
-              </p>
-
-              <div className="flex flex-row gap-3 mt-4 justify-center pointer-events-auto">
-                <Link href="/contact" className={buttonVariants({ size: "lg", className: "rounded-full px-8 h-11 text-sm shadow-lg" })}>
-                  Request Quote
-                </Link>
-                <Link
-                  href="/collections"
-                  className={buttonVariants({ size: "lg", variant: "outline", className: "rounded-full px-8 h-11 text-sm bg-transparent border-zinc-800 text-zinc-900 hover:bg-zinc-50" })}
-                >
-                  Design Your Bag
-                </Link>
-              </div>
+            <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center">
+              <Link href="/contact" className={buttonVariants({ size: "lg", className: "rounded-full px-8 h-12 text-sm shadow-md bg-primary hover:bg-primary/90" })}>
+                Request Quote
+              </Link>
+              <Link
+                href="/design"
+                className={buttonVariants({ size: "lg", variant: "outline", className: "rounded-full px-8 h-12 text-sm bg-white border-zinc-200 text-zinc-900 hover:bg-zinc-50 shadow-sm" })}
+              >
+                Design Your Bag
+              </Link>
             </div>
           </div>
         </div>
       </div>
 
       {/* Trust Metrics Banner */}
-      <section className="border-y bg-zinc-50 dark:bg-zinc-950 py-8">
+      <section className="border-y bg-zinc-50 dark:bg-zinc-950 py-10 md:py-14">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="flex flex-wrap justify-center gap-8 md:gap-12 text-center">
+          <div className="flex flex-wrap justify-center gap-12 md:gap-24 text-center">
             {trustMetrics.map(({ stat, label }) => (
-              <div key={label} className="flex flex-col items-center gap-1 font-heading">
-                <span className="text-3xl font-bold text-primary">{stat}</span>
-                <span className="text-sm text-muted-foreground font-medium uppercase tracking-wider">
+              <div key={label} className="flex flex-col items-center gap-2">
+                <span className="text-3xl md:text-4xl font-heading text-primary">{stat}</span>
+                <span className="text-xs md:text-sm text-muted-foreground font-serif italic uppercase tracking-wider">
                   {label}
                 </span>
               </div>
