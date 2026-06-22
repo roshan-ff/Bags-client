@@ -8,7 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { buttonVariants } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, Truck, Factory, ShieldCheck, Star } from "lucide-react";
-import { HeroBags } from "@/components/ui/HeroBags";
+
 import { ShaderBackground } from "@/components/ShaderBackground";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -37,7 +37,7 @@ const featuredCollections = [
 const trustMetrics = [
   { stat: "1000+", label: "Happy Customers" },
   { stat: "7+ Years", label: "Experience" },
-  { stat: "Own Unit", label: "Manufacturing" },
+
   { stat: "Pan India", label: "Delivery" },
 ];
 
@@ -144,16 +144,14 @@ export default function Home() {
   return (
     <div className="min-h-screen relative">
       <ShaderBackground />
+      <div className="relative z-10 flex flex-col">
       {/* ── UNIFIED SECTIONS (Hero to Why Choose Us) ── */}
       <div id="hero-section" className="relative w-full pt-8 md:pt-12 pb-16 flex flex-col items-center bg-transparent overflow-hidden z-10">
         
-        {/* Arc of Cards */}
-        <div className="relative w-full max-w-[1400px] h-[300px] md:h-[380px] lg:h-[460px] shrink-0">
-          <HeroBags />
-        </div>
+
 
         {/* Text Block */}
-        <div className="container mx-auto px-4 text-center max-w-3xl relative z-10 -mt-24 md:-mt-36 lg:-mt-42">
+        <div className="container mx-auto px-4 text-center max-w-3xl relative z-10 pt-16 md:pt-24 lg:pt-32">
           <div ref={heroTextRef} className="flex flex-col items-center gap-4">
             <h1 className="font-heading text-6xl md:text-7xl lg:text-[7.5rem] leading-none text-primary drop-shadow-sm font-normal">
               Purple Bags
@@ -167,7 +165,19 @@ export default function Home() {
               Premium customized wedding bags designed with your names, wedding dates, logos, and unique artwork to make every celebration unforgettable.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center">
+            {/* Trust Metrics */}
+            <div className="flex flex-wrap justify-center gap-8 md:gap-16 mt-8 mb-6">
+              {trustMetrics.map(({ stat, label }) => (
+                <div key={label} className="flex flex-col items-center gap-1">
+                  <span className="text-2xl md:text-3xl font-heading text-primary drop-shadow-sm">{stat}</span>
+                  <span className="text-[10px] md:text-xs text-foreground/80 font-serif italic uppercase tracking-widest">
+                    {label}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 mt-2 justify-center">
               <Link href="/contact" className={buttonVariants({ size: "lg", className: "rounded-full px-8 h-12 text-sm shadow-md bg-primary hover:bg-primary/90" })}>
                 Request Quote
               </Link>
@@ -182,24 +192,10 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Trust Metrics Banner */}
-      <section className="border-y bg-zinc-50 dark:bg-zinc-950 py-10 md:py-14">
-        <div className="container mx-auto px-4 md:px-8">
-          <div className="flex flex-wrap justify-center gap-12 md:gap-24 text-center">
-            {trustMetrics.map(({ stat, label }) => (
-              <div key={label} className="flex flex-col items-center gap-2">
-                <span className="text-3xl md:text-4xl font-heading text-primary">{stat}</span>
-                <span className="text-xs md:text-sm text-muted-foreground font-serif italic uppercase tracking-wider">
-                  {label}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* About Preview */}
-      <FadeSection className="py-24">
+      <FadeSection className="border-y border-white/50 bg-white/60 dark:bg-black/60 backdrop-blur-xl shadow-xl py-24 mt-16 md:mt-24 mb-6 md:mb-8">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg order-2 md:order-1">
@@ -236,7 +232,7 @@ export default function Home() {
       </FadeSection>
 
       {/* Collections Showcase */}
-      <FadeSection className="py-24 bg-zinc-50 dark:bg-zinc-950">
+      <FadeSection className="border-y border-white/50 bg-white/60 dark:bg-black/60 backdrop-blur-xl shadow-xl py-24 my-6 md:my-8">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
             <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
@@ -248,7 +244,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-12 max-w-5xl mx-auto">
             {featuredCollections.map((collection, i) => (
               <motion.div
                 key={collection.title}
@@ -258,7 +254,7 @@ export default function Home() {
                 transition={{ delay: i * 0.1, duration: 0.5 }}
               >
                 <Link href="/collections" className="group flex flex-col gap-4">
-                  <div className="aspect-[4/5] rounded-2xl overflow-hidden relative shadow-md">
+                  <div className="aspect-square rounded-2xl overflow-hidden relative shadow-md">
                     <Image
                       src={collection.src}
                       alt={collection.alt}
@@ -289,7 +285,7 @@ export default function Home() {
       </FadeSection>
 
       {/* Why Choose Us */}
-      <FadeSection className="py-24 bg-primary/5">
+      <FadeSection className="border-y border-white/50 bg-white/60 dark:bg-black/60 backdrop-blur-xl shadow-xl py-24 my-6 md:my-8">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
             <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
@@ -332,6 +328,7 @@ export default function Home() {
           <TestimonialScene />
         </div>
       </FadeSection>
+      </div>
     </div>
   );
 }

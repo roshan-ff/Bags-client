@@ -28,7 +28,6 @@ export function ShaderBackground() {
       >
         <ShaderGradient
           animate="on"
-          axesHelper="off"
           brightness={1.2}
           cAzimuthAngle={180}
           cDistance={3.6}

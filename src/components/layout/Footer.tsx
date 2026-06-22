@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="w-full border-t bg-zinc-50 dark:bg-zinc-950 overflow-hidden">
+    <footer className="relative z-10 w-full border-t bg-zinc-50 dark:bg-zinc-950 overflow-hidden">
       <div className="container mx-auto px-4 md:px-8 pt-16 pb-8">
         
         {/* TOP ROW: Massive Brand Name */}
