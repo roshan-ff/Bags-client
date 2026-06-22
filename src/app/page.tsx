@@ -112,38 +112,35 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero — single viewport height */}
+      {/* Hero — single viewport height, cards wrap around centered text (Figma layout) */}
       <div className="relative w-full h-screen overflow-hidden">
 
-        {/* Cards arc — top 55% of viewport */}
+        {/* Cards — horseshoe arrangement around text */}
         <HeroBags />
 
-        {/* Text block — starts at 46%, sits cleanly below card arc */}
-        <div
-          className="absolute inset-x-0 z-10 flex flex-col items-center justify-start pointer-events-none"
-          style={{ top: "46%", bottom: 0 }}
-        >
-          <div className="container mx-auto px-4 text-center max-w-3xl">
+        {/* Text — centered in viewport, cards surround it */}
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none">
+          <div className="text-center max-w-xl px-4">
             <div ref={heroTextRef} className="flex flex-col items-center gap-2">
-              <h1 className="font-heading text-5xl md:text-6xl lg:text-[6.5rem] leading-none text-primary tracking-tight drop-shadow-sm">
+              <h1 className="font-heading text-6xl md:text-7xl lg:text-[7.5rem] leading-none text-primary tracking-tight drop-shadow-sm">
                 Purple Bags
               </h1>
 
-              <h2 className="text-lg md:text-xl lg:text-2xl font-bold tracking-tight text-foreground/90 leading-snug max-w-2xl mx-auto">
+              <h2 className="text-lg md:text-xl lg:text-2xl font-bold tracking-tight text-foreground/90 leading-snug">
                 Custom Wedding Bags Crafted For Your Special Day.
               </h2>
 
-              <p className="text-sm md:text-sm text-muted-foreground max-w-lg mx-auto leading-relaxed">
+              <p className="text-sm text-muted-foreground max-w-md mx-auto leading-relaxed mt-1">
                 Premium customized wedding bags designed with your names, wedding dates, logos, and unique artwork to make every celebration unforgettable.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3 mt-3 justify-center pointer-events-auto">
+              <div className="flex flex-row gap-3 mt-4 justify-center pointer-events-auto">
                 <Link href="/contact" className={buttonVariants({ size: "lg", className: "rounded-full px-8 h-11 text-sm shadow-lg" })}>
                   Request Quote
                 </Link>
                 <Link
                   href="/collections"
-                  className={buttonVariants({ size: "lg", variant: "secondary", className: "rounded-full px-8 h-11 text-sm bg-white border shadow-sm hover:bg-zinc-50 text-zinc-900" })}
+                  className={buttonVariants({ size: "lg", variant: "outline", className: "rounded-full px-8 h-11 text-sm bg-transparent border-zinc-800 text-zinc-900 hover:bg-zinc-50" })}
                 >
                   Design Your Bag
                 </Link>
