@@ -42,7 +42,7 @@ export function Header() {
           <Link href="/contact" className={buttonVariants({ variant: "outline" })}>
             Request Quote
           </Link>
-          <Link href="/collections" className={buttonVariants({ variant: "default" })}>
+          <Link href="/design" className={buttonVariants({ variant: "default" })}>
             Design Your Bag
           </Link>
         </div>
@@ -77,7 +77,7 @@ export function Header() {
                 <Link href="/contact" className={buttonVariants({ variant: "outline", className: "w-full justify-center" })}>
                   Request Quote
                 </Link>
-                <Link href="/collections" className={buttonVariants({ variant: "default", className: "w-full justify-center" })}>
+                <Link href="/design" className={buttonVariants({ variant: "default", className: "w-full justify-center" })}>
                   Design Your Bag
                 </Link>
               </div>
