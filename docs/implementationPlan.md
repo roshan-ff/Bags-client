@@ -41,7 +41,6 @@ Core Website
 * Home Page
 * About Page
 * Collections
-* Gallery
 * FAQ
 * Contact
 

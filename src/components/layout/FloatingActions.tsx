@@ -4,8 +4,11 @@ import { MessageCircle, Phone, ArrowUp } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+import { usePathname } from "next/navigation";
+
 export function FloatingActions() {
   const [showTop, setShowTop] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setShowTop(window.scrollY > 400);
@@ -14,6 +17,8 @@ export function FloatingActions() {
   }, []);
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
+  if (pathname === "/design") return null;
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3 items-center">

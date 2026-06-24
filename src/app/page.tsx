@@ -101,7 +101,7 @@ export default function Home() {
       </FadeSection>
 
       {/* Collections Showcase */}
-      <FadeSection className="py-24 bg-gradient-to-b from-background to-primary/5 dark:from-background dark:to-primary/5">
+      <FadeSection className="pt-24 pb-16 bg-gradient-to-b from-background to-primary/5 dark:from-background dark:to-primary/5">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-[60px] font-medium tracking-tight text-foreground leading-tight">
@@ -149,11 +149,11 @@ export default function Home() {
       </FadeSection>
 
       {/* Why Choose Us */}
-      <FadeSection className="py-24 bg-primary/5">
+      <FadeSection className="pt-16 pb-24 bg-primary/5">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-[60px] font-medium tracking-tight text-foreground leading-tight">
-              Why Families Choose Purple Bags
+              Why Families Choose <span className="text-primary">Purple Bags</span>
             </h2>
           </div>
 
