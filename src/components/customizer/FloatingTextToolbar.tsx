@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useCustomizer } from "./CustomizerContext";
 import { fabric } from "fabric";
-import { Trash2, Bold, Italic, AlignLeft, AlignCenter, AlignRight, Underline } from "lucide-react";
+import { Trash2, Bold, Italic, Underline, ArrowUpToLine, ArrowDownToLine, Box } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
@@ -156,6 +156,27 @@ export function FloatingTextToolbar() {
     forceRender();
   };
 
+  const bringForward = () => {
+    canvas?.bringForward(textObj);
+    canvas?.renderAll();
+    forceRender();
+  };
+
+  const sendBackward = () => {
+    if (!canvas) return;
+    const bagIndex = canvas.getObjects().findIndex(o => (o as any).isBagBackground);
+    const currentIndex = canvas.getObjects().indexOf(textObj);
+    
+    // Don't send behind the bag background
+    if (bagIndex !== -1 && currentIndex <= bagIndex + 1) {
+      return;
+    }
+    
+    canvas.sendBackwards(textObj);
+    canvas.renderAll();
+    forceRender();
+  };
+
   return (
     <div 
       ref={toolbarRef}
@@ -228,19 +249,74 @@ export function FloatingTextToolbar() {
 
       <div className="w-px h-5 bg-border mx-0.5" />
 
-      <Button variant="ghost" size="icon" className={cn("h-8 w-8", textAlign === "left" && "bg-muted")} onClick={() => setAlignment("left")}>
-        <AlignLeft className="h-4 w-4" />
+      {/* 3D Tilt (Skew) Controls */}
+      <Popover>
+        <PopoverTrigger className="h-8 w-8 flex items-center justify-center rounded-md hover:bg-muted transition-colors" title="3D Tilt (Perspective)">
+          <Box className="h-4 w-4" />
+        </PopoverTrigger>
+        <PopoverContent className="w-60 p-4" side="top" align="center">
+          <div className="space-y-4">
+            <h4 className="text-sm font-medium leading-none">3D Tilt (Perspective)</h4>
+            <div className="space-y-3">
+              <div className="space-y-1">
+                <div className="flex justify-between text-xs text-muted-foreground">
+                  <span>Horizontal Tilt</span>
+                  <span>{Math.round(textObj.skewX || 0)}°</span>
+                </div>
+                <input 
+                  type="range" min="-60" max="60" value={textObj.skewX || 0} 
+                  onChange={(e) => { 
+                    textObj.set('skewX', parseInt(e.target.value)); 
+                    canvas?.renderAll(); 
+                    forceRender(); 
+                  }}
+                  className="w-full accent-primary"
+                />
+              </div>
+              <div className="space-y-1">
+                <div className="flex justify-between text-xs text-muted-foreground">
+                  <span>Vertical Tilt</span>
+                  <span>{Math.round(textObj.skewY || 0)}°</span>
+                </div>
+                <input 
+                  type="range" min="-60" max="60" value={textObj.skewY || 0} 
+                  onChange={(e) => { 
+                    textObj.set('skewY', parseInt(e.target.value)); 
+                    canvas?.renderAll(); 
+                    forceRender(); 
+                  }}
+                  className="w-full accent-primary"
+                />
+              </div>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="w-full text-xs h-7"
+                onClick={() => {
+                  textObj.set({ skewX: 0, skewY: 0 });
+                  canvas?.renderAll();
+                  forceRender();
+                }}
+              >
+                Reset Tilt
+              </Button>
+            </div>
+          </div>
+        </PopoverContent>
+      </Popover>
+
+      <div className="w-px h-5 bg-border mx-0.5" />
+
+      <Button variant="ghost" size="icon" className="h-8 w-8" onClick={bringForward} title="Bring Forward">
+        <ArrowUpToLine className="h-4 w-4" />
       </Button>
-      <Button variant="ghost" size="icon" className={cn("h-8 w-8", textAlign === "center" && "bg-muted")} onClick={() => setAlignment("center")}>
-        <AlignCenter className="h-4 w-4" />
-      </Button>
-      <Button variant="ghost" size="icon" className={cn("h-8 w-8", textAlign === "right" && "bg-muted")} onClick={() => setAlignment("right")}>
-        <AlignRight className="h-4 w-4" />
+      <Button variant="ghost" size="icon" className="h-8 w-8" onClick={sendBackward} title="Send Backward">
+        <ArrowDownToLine className="h-4 w-4" />
       </Button>
 
       <div className="w-px h-5 bg-border mx-0.5" />
 
-      <Button variant="ghost" size="icon" className="h-8 w-8 text-destructive hover:text-destructive hover:bg-destructive/10" onClick={handleDelete}>
+      <Button variant="ghost" size="icon" className="h-8 w-8 text-destructive hover:text-destructive hover:bg-destructive/10" onClick={handleDelete} title="Delete">
         <Trash2 className="h-4 w-4" />
       </Button>
     </div>
