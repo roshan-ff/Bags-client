@@ -5,6 +5,7 @@ import { LenisProvider } from "@/hooks/useLenis";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingActions } from "@/components/layout/FloatingActions";
+import { Providers } from "@/components/ui/Providers";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -63,10 +64,14 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col font-sans">
         <LenisProvider>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <FloatingActions />
+          <Providers>
+            <Header />
+            <main className="flex-grow pt-16">
+              {children}
+            </main>
+            <Footer />
+            <FloatingActions />
+          </Providers>
         </LenisProvider>
       </body>
     </html>
