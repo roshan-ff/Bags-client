@@ -190,7 +190,7 @@ export default function Home() {
       </section>
 
       {/* About Preview */}
-      <FadeSection className="py-24">
+      <FadeSection className="py-24 bg-gradient-to-b from-primary/10 via-primary/5 to-background dark:from-primary/5 dark:to-background">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg order-2 md:order-1">
@@ -204,7 +204,7 @@ export default function Home() {
               />
             </div>
             <div className="flex flex-col gap-6 order-1 md:order-2">
-              <h2 className="font-heading text-3xl md:text-4xl font-bold">
+              <h2 className="font-playfair text-3xl md:text-[40px] leading-tight font-medium text-foreground/90">
                 Crafting Wedding Bags With Passion Since 2019
               </h2>
               <p className="text-muted-foreground text-lg">
@@ -229,10 +229,10 @@ export default function Home() {
       </FadeSection>
 
       {/* Collections Showcase */}
-      <FadeSection className="py-24 bg-zinc-50 dark:bg-zinc-950">
+      <FadeSection className="py-24 bg-gradient-to-b from-background to-primary/5 dark:from-background dark:to-primary/5">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="font-playfair text-4xl md:text-[46px] leading-tight font-medium mb-8 text-center text-foreground/90">
               Explore Our Collections
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -286,7 +286,7 @@ export default function Home() {
       <FadeSection className="py-24 bg-primary/5">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="font-playfair text-4xl md:text-[46px] leading-tight font-medium mb-8 text-center text-foreground/90">
               Why Families Choose Purple Bags
             </h2>
           </div>
@@ -324,7 +324,7 @@ export default function Home() {
           {/* heading */}
           <div className="text-center mb-16">
             <p className="text-xs uppercase tracking-[0.25em] text-primary/60 mb-2">Real stories</p>
-            <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground">
+            <h2 className="font-playfair text-4xl md:text-[46px] leading-tight font-medium mb-8 text-center text-foreground/90">
               real results.
             </h2>
           </div>
