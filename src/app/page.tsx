@@ -119,15 +119,16 @@ export default function Home() {
             src="/Main_background.svg"
             alt="Hero Background"
             fill
+            sizes="100vw"
             className="object-cover object-center"
             priority
           />
         </div>
-        
+
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div ref={heroTextRef} className="flex flex-col gap-6 max-w-xl">
-              
+
               <div className="flex flex-col gap-2">
                 <span className="text-xs font-bold uppercase tracking-widest text-primary/80">
                   Elegance in Every Stitch
@@ -138,15 +139,15 @@ export default function Home() {
               <span className="font-heading text-6xl md:text-7xl lg:text-8xl leading-none tracking-tight">
                 <span className="text-primary">Purple</span> <span className="text-foreground/90">Bags</span>
               </span>
-              
+
               <h1 className="text-3xl md:text-4xl lg:text-[42px] font-medium tracking-tight text-foreground/80 leading-tight">
                 Custom Wedding Bags<br />Crafted For Your Special Day
               </h1>
-              
+
               <div className="flex items-center justify-start gap-3 text-primary/60 my-2">
                 <div className="h-[1px] w-16 bg-primary/30"></div>
                 <svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 20C12 20 2.5 13 2.5 7.5C2.5 4.5 4.5 2.5 7.5 2.5C9.5 2.5 11 3.5 12 5.5C13 3.5 14.5 2.5 16.5 2.5C19.5 2.5 21.5 4.5 21.5 7.5C21.5 13 12 20 12 20Z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+                  <path d="M12 20C12 20 2.5 13 2.5 7.5C2.5 4.5 4.5 2.5 7.5 2.5C9.5 2.5 11 3.5 12 5.5C13 3.5 14.5 2.5 16.5 2.5C19.5 2.5 21.5 4.5 21.5 7.5C21.5 13 12 20 12 20Z" stroke="currentColor" strokeWidth="1.5" fill="none" />
                 </svg>
                 <div className="h-[1px] w-16 bg-primary/30"></div>
               </div>
@@ -156,7 +157,7 @@ export default function Home() {
                 dates, logos, and unique artwork to make every celebration
                 unforgettable.
               </p>
-              
+
               <div className="flex flex-wrap gap-6 md:gap-10 mt-4">
                 {trustMetrics.map(({ stat, label }, i) => (
                   <div key={label} className="flex items-center gap-3">
@@ -170,7 +171,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 mt-6">
                 <Link href="/contact" className={buttonVariants({ size: "lg", className: "gap-2 shadow-md w-fit" })}>
                   Request Quote <ArrowRight className="h-4 w-4" />
@@ -204,7 +205,7 @@ export default function Home() {
               />
             </div>
             <div className="flex flex-col gap-6 order-1 md:order-2">
-              <h2 className="font-playfair text-3xl md:text-[40px] leading-tight font-medium text-foreground/90">
+              <h2 className="text-3xl md:text-4xl lg:text-[42px] font-medium tracking-tight text-foreground leading-tight">
                 Crafting Wedding Bags With Passion Since 2019
               </h2>
               <p className="text-muted-foreground text-lg">
@@ -232,7 +233,7 @@ export default function Home() {
       <FadeSection className="py-24 bg-gradient-to-b from-background to-primary/5 dark:from-background dark:to-primary/5">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-playfair text-4xl md:text-[46px] leading-tight font-medium mb-8 text-center text-foreground/90">
+            <h2 className="text-3xl md:text-4xl lg:text-[60px] font-medium tracking-tight text-foreground leading-tight">
               Explore Our Collections
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -257,14 +258,15 @@ export default function Home() {
                       alt={collection.alt}
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
+                      priority={i < 3}
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
                   <div>
-                    <h3 className="font-heading text-xl font-bold group-hover:text-primary transition-colors">
+                    <h3 className="font-heading text-2xl font-medium group-hover:text-primary transition-colors">
                       {collection.title}
                     </h3>
-                    <p className="text-muted-foreground">{collection.desc}</p>
+                    <p className="text-sm text-muted-foreground">{collection.desc}</p>
                   </div>
                 </Link>
               </motion.div>
@@ -286,7 +288,7 @@ export default function Home() {
       <FadeSection className="py-24 bg-primary/5">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-playfair text-4xl md:text-[46px] leading-tight font-medium mb-8 text-center text-foreground/90">
+            <h2 className="text-3xl md:text-4xl lg:text-[60px] font-medium tracking-tight text-foreground leading-tight">
               Why Families Choose Purple Bags
             </h2>
           </div>
@@ -304,7 +306,7 @@ export default function Home() {
                 <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                   {icon}
                 </div>
-                <h3 className="font-bold text-lg">{title}</h3>
+                <h3 className=" text-2xl font-medium tracking-tight">{title}</h3>
                 <p className="text-sm text-muted-foreground">{desc}</p>
               </motion.div>
             ))}
@@ -323,8 +325,8 @@ export default function Home() {
         <div className="relative container mx-auto px-4 md:px-8">
           {/* heading */}
           <div className="text-center mb-16">
-            <p className="text-xs uppercase tracking-[0.25em] text-primary/60 mb-2">Real stories</p>
-            <h2 className="font-playfair text-4xl md:text-[46px] leading-tight font-medium mb-8 text-center text-foreground/90">
+            <p className="text-sm uppercase tracking-[0.25em] text-primary/60 mb-2">Real stories</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[60px] font-medium tracking-tight text-foreground leading-tight">
               real results.
             </h2>
           </div>
@@ -472,7 +474,7 @@ function TestimonialScene() {
       {TESTIMONIALS.map((t, i) => {
         const layout = SCATTER_LAYOUTS[i];
         const isHovered = hoveredId === t.id;
-        
+
         return (
           <motion.div
             key={`scatter-${t.id}`}
@@ -502,8 +504,8 @@ function TestimonialScene() {
                 className="relative rounded-full overflow-hidden cursor-pointer flex-shrink-0"
                 style={{ width: layout.size, height: layout.size }}
                 animate={{
-                  boxShadow: isHovered 
-                    ? "0 0 35px 10px rgba(107,13,173,0.3)" 
+                  boxShadow: isHovered
+                    ? "0 0 35px 10px rgba(107,13,173,0.3)"
                     : "0 8px 20px rgba(0,0,0,0.08)",
                   scale: isHovered ? 1.05 : 1,
                   borderColor: isHovered ? "rgba(107,13,173,0.5)" : "rgba(255,255,255,0.8)",

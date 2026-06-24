@@ -62,7 +62,7 @@ export default function Gallery() {
     active === "All" ? galleryItems : galleryItems.filter((g) => g.category === active);
 
   return (
-    <div className="flex flex-col min-h-screen pt-12 pb-24">
+    <div className="flex flex-col min-h-screen pt-28 md:pt-32 pb-24">
       <div className="container mx-auto px-4 md:px-8">
         {/* Header */}
         <h1 className="font-heading text-4xl md:text-5xl font-bold mb-4 text-center">
@@ -96,7 +96,7 @@ export default function Gallery() {
           plugins={[lgThumbnail, lgZoom]}
           elementClassNames="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4"
         >
-          {filtered.map((item) => (
+          {filtered.map((item, i) => (
             <a
               key={item.id}
               href={item.src}
@@ -107,6 +107,8 @@ export default function Gallery() {
                 src={item.src}
                 alt={item.title}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority={i < 4}
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
