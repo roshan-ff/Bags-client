@@ -49,7 +49,7 @@ export default function Collections() {
 
         {/* Grid */}
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {filtered.map((item: Collection) => (
+          {filtered.map((item: Collection, i: number) => (
             <div
               key={item.id}
               className="group relative rounded-2xl overflow-hidden border bg-card text-card-foreground shadow-sm"
@@ -59,6 +59,8 @@ export default function Collections() {
                   src={item.img}
                   alt={item.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  priority={i < 4}
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 {/* Hover overlay */}
